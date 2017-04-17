@@ -1,4 +1,5 @@
 flask
-Flask-Redis
+Flask-OpenID
 Flask-SQLAlchemy
 psycopg2
+requests

@@ -1,0 +1,4 @@
+flask
+Flask-Redis
+Flask-SQLAlchemy
+psycopg2

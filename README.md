@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 
 `reset.sh` drops and creates a database called `steamlog`, adds sample users, adds all (known) Steam games,
-then starts the logger. To run the logger without restarting, run `python start_logger.py`.
+then starts the logger. To run the logger without resetting, run `python start_logger.py`.
 
 ## Running the server
 Create a secret key (used for signing cookies) and put it in `config.py`. I don't recommend using an actual

@@ -68,7 +68,14 @@ def update(user, name, picture, game_id, curr_time):
 
 def begin():
     print(f"[ STARTED LOGGING! ] {datetime.now()}\n")
+    # 100k requests/day + fuzzing
+    pause_time = 100_000 / (60 * 60 * 24) + 0.1
     while True:
+        start = datetime.now()
+
         for users in get_users():
             get_profiles(users)
-        time.sleep(1)
+
+        elapsed = (datetime.now() - start).total_seconds()
+        if elapsed < pause_time:
+            time.sleep(pause_time - elapsed)

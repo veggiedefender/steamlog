@@ -5,7 +5,7 @@ from steamlog import db, app as _app
 
 def add_games():
     print("[ ADDING GAMES ]")
-    apps = get_json(_app.config["STEAM_APP_LIST"])["applist"]["apps"]["app"]
+    apps = get_json(_app.config["STEAM_APP_LIST"])["applist"]["apps"]
     total_apps = len(apps)
 
     for i in range(total_apps):

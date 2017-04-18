@@ -70,7 +70,7 @@ class Game(db.Model):
     @staticmethod
     def add_game(game_id):
         print(f"Adding game {game_id}")
-        apps = get_json(_app.config["STEAM_APP_LIST"])["applist"]["apps"]["app"]
+        apps = get_json(_app.config["STEAM_APP_LIST"])["applist"]["apps"]
         apps = [app for app in apps if app["appid"] == int(game_id)]
         name = apps[0]["name"] if len(apps) > 0 else "__UNKNOWN_GAME__"
         game = Game(id=game_id, name=name)

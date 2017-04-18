@@ -1,4 +1,5 @@
 import requests
+import time
 
 
 def get_json(url):

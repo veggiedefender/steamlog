@@ -11,6 +11,15 @@ class User(db.Model):
     picture = db.Column(db.String(40), nullable=False)
     game_events = db.relationship("GameEvent", backref="user")
 
+    @staticmethod
+    def get_or_create(steam_id, name, picture):
+        user = User.query.filter_by(steam_id=steam_id).first()
+        if User is None:
+            user = User(steam_id=steam_id, name=name, picture=picture)
+            db.session.add(user)
+            db.session.commit()
+        return user
+
     @property
     def prev(self):
         event = (
@@ -37,6 +46,19 @@ class User(db.Model):
             print(f"{time} {self.name} STOPPED [[]] {prev.game_id}")
             prev.stop_time = time
             db.session.add(prev)
+
+    # flask_login properties
+    @property
+    def is_authenticated(self):
+        return True
+    @property
+    def is_active(self):
+        return True
+    @property
+    def is_anonymous(self):
+        return False
+    def get_id(self):
+        return str(self.id)
 
 
 class Game(db.Model):

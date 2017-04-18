@@ -1,5 +1,6 @@
 flask
 Flask-OpenID
+Flask-Login
 Flask-SQLAlchemy
 psycopg2
 requests

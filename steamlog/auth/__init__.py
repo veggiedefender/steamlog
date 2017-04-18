@@ -24,7 +24,7 @@ def create_or_login(resp):
         profile["personaname"],
         profile["avatar"][-44:-4]
     )
-    login_user(user)
+    login_user(user, remember=True)
     next_url = oid.get_next_url()
     if is_safe_url(next_url):
         return redirect(next_url)

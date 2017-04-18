@@ -6,4 +6,10 @@ from flask_login import login_required, current_user
 
 @app.route("/")
 def index():
-    return current_user.steam_id
+    return "index"
+
+
+@app.route("/info")
+@login_required
+def info():
+    return current_user.name

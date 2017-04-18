@@ -2,7 +2,7 @@ from steamlog.utils import get_json
 from steamlog import app
 
 
-def get_info(steam_id):
+def get_player_info(steam_id):
     """
     Looks like this:
     {

@@ -1,5 +1,5 @@
 from sqlalchemy.exc import IntegrityError
-from steamlog.utils import get_json
+from steamlog.utils import get_json, get_player_info
 from steamlog import db, app as _app
 
 
@@ -12,10 +12,15 @@ class User(db.Model):
     game_events = db.relationship("GameEvent", backref="user")
 
     @staticmethod
-    def get_or_create(steam_id, name, picture):
+    def get_or_create(steam_id):
         user = User.query.filter_by(steam_id=steam_id).first()
-        if User is None:
-            user = User(steam_id=steam_id, name=name, picture=picture)
+        if user is None:
+            profile = get_player_info(steam_id)
+            user = User(
+                steam_id=steam_id,
+                name=profile["personaname"],
+                picture=profile["avatar"][-44:-4]
+            )
             db.session.add(user)
             db.session.commit()
         return user

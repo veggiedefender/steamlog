@@ -26,7 +26,7 @@ Create a secret key (used for signing cookies) and put it in `config.py`. I don'
 password. Just run `base64 -w 0 /dev/urandom` (the `-w 0` strips newlines) for a bit and copy and paste a 
 sizeable chunk into your config.
 
-Then just run the dev server with `python run.py`.
+Then just run the dev server with `./run.py`.
 
 You can deploy this behind [nginx](https://www.nginx.com/) with this
 [nice guide](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04)

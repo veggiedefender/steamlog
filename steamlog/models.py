@@ -7,20 +7,32 @@ class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     steam_id = db.Column(db.String(17), index=True, nullable=False, unique=True)
+    url = db.Column(db.String(32), index=True, nullable=False)
     name = db.Column(db.String(32), nullable=False)
     picture = db.Column(db.String(40), nullable=False)
     game_events = db.relationship("GameEvent", backref="user")
+
+    def profile_picture(self, size=3):
+        URL = _app.config['STEAM_PROFILE_PIC'] + self.picture
+        if size == 3:
+            return URL + "_full.jpg"
+        elif size == 2:
+            return URL + "_medium.jpg"
+        elif size == 1:
+            return URL + ".jpg"
+
+    def update(self, profile):
+        self.name = profile["personaname"]
+        self.picture = profile["avatar"][-44:-4]
+        self.url = profile["profileurl"].split("/")[-2]
 
     @staticmethod
     def get_or_create(steam_id):
         user = User.query.filter_by(steam_id=steam_id).first()
         if user is None:
             profile = get_player_info(steam_id)
-            user = User(
-                steam_id=steam_id,
-                name=profile["personaname"],
-                picture=profile["avatar"][-44:-4]
-            )
+            user = User(steam_id=steam_id)
+            user.update(profile)
             db.session.add(user)
             db.session.commit()
         return user
@@ -35,7 +47,7 @@ class User(db.Model):
         )
         return event
 
-    def start_game(self, prev, game_id, time):
+    def play_game(self, prev, game_id, time):
         if prev is None or prev.stop_time is not None:
             print(f"{time} {self.name} STARTED <><> {game_id}")
             if Game.query.get(game_id) is None:
@@ -44,7 +56,7 @@ class User(db.Model):
             db.session.add(event)
         elif prev.game_id != int(game_id):
             self.stop_game(prev, time)
-            self.start_game(self.prev, game_id, time)
+            self.play_game(self.prev, game_id, time)
 
     def stop_game(self, prev, time):
         if prev is not None and prev.stop_time is None:

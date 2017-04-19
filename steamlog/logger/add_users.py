@@ -218,6 +218,7 @@ def add_users():
             steam_id=id,
             name="sample name",
             picture="sample picture",
+            url="sample url"
         )
         db.session.add(u)
-        db.session.commit()
+    db.session.commit()

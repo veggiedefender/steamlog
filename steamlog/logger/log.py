@@ -40,28 +40,22 @@ def get_profiles(users):
     profiles = transform(get_json(users_url)["response"]["players"])
     curr_time = datetime.now()
     for user in users:
-        profile = profiles[user.steam_id]
-
-        name = profile["personaname"]
-        picture = profile["avatar"][-44:-4]
-        game_id = profile.get("gameid")
-
-        update(user, name, picture, game_id, curr_time)
+        update(user, profiles[user.steam_id], curr_time)
     db.session.commit()
 
 
-def update(user, name, picture, game_id, curr_time):
+def update(user, profile, curr_time):
     """
     Update individual user data in db
     """
-    user.name = name
-    user.picture = picture
-
+    user.update(profile)
+    game_id = profile.get("gameid")
     prev = user.prev
+
     if game_id is None:
         user.stop_game(prev, curr_time)
     else:
-        user.start_game(prev, game_id, curr_time)
+        user.play_game(prev, game_id, curr_time)
 
     db.session.add(user)
 

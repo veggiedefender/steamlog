@@ -25,5 +25,4 @@ def get_player_info(steam_id):
     }
     """
     url = app.config["STEAM_SUMMARIES"] + str(steam_id)
-    resp = get_json(url)
-    return resp["response"]["players"][0]
+    return get_json(url)["response"]["players"][0]

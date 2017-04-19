@@ -13,7 +13,14 @@ def index():
         return redirect(url_for("login"))
 
 
-@app.route("/api/profiles/<steam_id>")
+@app.route("/profiles/<steam_id>")
 @login_required
-def basic_info():
-    pass
+def basic_info_profiles(steam_id):
+    user = User.query.filter_by(steam_id=steam_id).first_or_404()
+    return stats.basic_info(user)
+
+
+@app.route("/id/<url>")
+def basic_info_url(url):
+    user = User.query.filter_by(url=url).first_or_404()
+    return stats.basic_info(user)

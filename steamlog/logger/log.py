@@ -4,6 +4,7 @@ from datetime import datetime
 from steamlog.models import User, Game, GameEvent
 from steamlog.utils import get_json
 from steamlog import app, db
+from multiprocessing import Process
 
 
 def get_users():
@@ -60,6 +61,11 @@ def update(user, profile, curr_time):
     db.session.add(user)
 
 
+def scan_once():
+    for users in get_users():
+        get_profiles(users)
+
+
 def begin():
     print(f"[ STARTED LOGGING! ] {datetime.now()}\n")
     # 100k requests/day + fuzzing
@@ -67,8 +73,9 @@ def begin():
     while True:
         start = datetime.now()
 
-        for users in get_users():
-            get_profiles(users)
+        proc = Process(target=scan_once)
+        proc.start()
+        proc.join()
 
         elapsed = (datetime.now() - start).total_seconds()
         if elapsed < pause_time:

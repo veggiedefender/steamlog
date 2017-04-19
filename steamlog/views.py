@@ -1,26 +1,25 @@
-from flask import jsonify, request, url_for, render_template, redirect
+from flask import url_for, redirect, render_template
 from steamlog.models import User
-from steamlog.utils import stats
-from steamlog import app, db
-from flask_login import login_required, current_user
+from steamlog import app
+from flask_login import current_user
 
 
 @app.route("/")
 def index():
     if current_user.is_authenticated:
-        return render_template("index.html", user=current_user)
+        return redirect(url_for("profile_page_steam_id",
+                                steam_id=current_user.steam_id))
     else:
         return redirect(url_for("login"))
 
 
 @app.route("/profiles/<steam_id>")
-@login_required
-def basic_info_profiles(steam_id):
+def profile_page_steam_id(steam_id):
     user = User.query.filter_by(steam_id=steam_id).first_or_404()
-    return stats.basic_info(user)
+    return render_template("index.html", user=user)
 
 
 @app.route("/id/<url>")
-def basic_info_url(url):
+def profile_page_url(url):
     user = User.query.filter_by(url=url).first_or_404()
-    return stats.basic_info(user)
+    return render_template("index.html", user=user)

@@ -12,15 +12,6 @@ class User(db.Model):
     picture = db.Column(db.String(40), nullable=False)
     game_events = db.relationship("GameEvent", backref="user")
 
-    def profile_picture(self, size=3):
-        URL = _app.config['STEAM_PROFILE_PIC'] + self.picture
-        if size == 3:
-            return URL + "_full.jpg"
-        elif size == 2:
-            return URL + "_medium.jpg"
-        elif size == 1:
-            return URL + ".jpg"
-
     def update(self, profile):
         self.name = profile["personaname"]
         self.picture = profile["avatar"][-44:-4]
@@ -103,3 +94,10 @@ class GameEvent(db.Model):
 
     game_id = db.Column(db.Integer, db.ForeignKey("games.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+
+    def __iter__(self):
+        yield "game_id", self.game_id
+        yield "start_time", self.start_time.timestamp()
+        yield "stop_time", (self.stop_time.timestamp()
+                            if self.stop_time is not None
+                            else "")

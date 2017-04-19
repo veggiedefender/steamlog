@@ -12,4 +12,4 @@ oid = OpenID(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-from steamlog import views, auth
+from steamlog import views, api, auth

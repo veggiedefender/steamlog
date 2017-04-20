@@ -18,6 +18,8 @@ class User(db.Model):
         self.picture = profile["avatar"][-44:-4]
         self.url = profile["profileurl"].split("/")[-2]
         self.state = profile["personastate"]
+        if profile.get("gameid") is not None:
+            self.state = 7
 
     @staticmethod
     def get_or_create(steam_id):

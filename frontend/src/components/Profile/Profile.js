@@ -12,7 +12,8 @@ export default class Profile extends Component {
       Colors.orange, //away
       Colors.yellow, //snooze
       Colors.blue,   //looking to trade
-      Colors.blue    //looking to play
+      Colors.blue,   //looking to play
+      Colors.green   //in game
     ]
     const picture = `http://cdn.edgecast.steamstatic.com/steamcommunity/public/images/avatars/af/${this.props.info.picture}_full.jpg`;
     return (

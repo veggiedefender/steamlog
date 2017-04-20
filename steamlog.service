@@ -1,0 +1,14 @@
+#copy this to /etc/systemd/system/steamlog.service
+[Unit]
+Description=uWSGI steamlog
+After=network.target
+
+[Service]
+User=jesse
+Group=www-data
+WorkingDirectory=/home/jesse/steamlog
+Environment="PATH=/home/jesse/steamlog/venv/bin"
+ExecStart=/home/jesse/steamlog/venv/bin/uwsgi --ini steamlog.ini
+
+[Install]
+WantedBy=multi-user.target

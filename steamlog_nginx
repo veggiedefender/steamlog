@@ -1,0 +1,15 @@
+#copy to /etc/nginx/sites-available/steamlog
+#ln -s /etc/nginx/sites-available/steamlog /etc/nginx/sites-enabled
+server {
+    listen 80;
+    server_name 162.243.163.202;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/jesse/steamlog/steamlog.sock;
+    }
+    location /static {
+        alias /home/jesse/steamlog/app/static;
+        add_header Cache-Control "max-age=31536000, public";
+    }
+}

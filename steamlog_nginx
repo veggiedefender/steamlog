@@ -9,7 +9,7 @@ server {
         uwsgi_pass unix:/home/jesse/steamlog/steamlog.sock;
     }
     location /static {
-        alias /home/jesse/steamlog/app/static;
+        alias /home/jesse/steamlog/steamlog/static;
         add_header Cache-Control "max-age=31536000, public";
     }
 }

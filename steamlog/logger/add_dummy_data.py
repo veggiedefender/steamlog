@@ -2,9 +2,6 @@ from steamlog import db
 from steamlog.models import User, GameEvent
 from datetime import datetime
 
-# that's me!
-user = User.query.filter_by(steam_id="76561198061699578").one()
-
 event_json = [{'game_id': 495780,
                'start_time': 1492607766.772653,
                'stop_time': 1492610919.145611},
@@ -56,6 +53,10 @@ event_json = [{'game_id': 495780,
 
 
 def add_dummy_data():
+    print("[ ADDING DUMMY DATA ]")
+    # that's me!
+    user = User.query.filter_by(steam_id="76561198061699578").one()
+
     for event in event_json:
         event = GameEvent(
             start_time=datetime.fromtimestamp(event["start_time"]),

@@ -212,13 +212,14 @@ ids = [
 def add_users():
     print("[ ADDING USERS ]")
     for id in ids:
-        # We can put in sample names/pictures because
+        # We can put in placeholder data because
         # the logger will correct them for us.
         u = User(
             steam_id=id,
             name="sample name",
             picture="sample picture",
-            url="sample url"
+            url="sample url",
+            state=0
         )
         db.session.add(u)
     db.session.commit()

@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://use.fontawesome.com/107a50b4ae.js"></script>
     <title>steamlog</title>
+    <script>
+      window.info = {        
+        name: "{{user.name}}",
+        steam_id: "{{user.steam_id}}",
+        state: {{user.state}},
+        picture: "{{user.picture}}"
+      }
+    </script>
   </head>
   <body>
-    <div class="container">
-      <div id="app">
-        
-      </div>
-    </div>    
+    <div id="app"></div>
   </body>
 </html>

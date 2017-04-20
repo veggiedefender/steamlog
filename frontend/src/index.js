@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./css/index.css";
-import "./css/normalize.css";
 
-ReactDOM.render(
-  <App />,
-  document.getElementById("app")
-);
+const app = document.getElementById("app");
+ReactDOM.render(<App info={window.info} />, app);

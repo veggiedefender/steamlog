@@ -10,12 +10,14 @@ class User(db.Model):
     url = db.Column(db.String(32), index=True, nullable=False)
     name = db.Column(db.String(32), nullable=False)
     picture = db.Column(db.String(40), nullable=False)
+    state = db.Column(db.Integer, nullable=False)
     game_events = db.relationship("GameEvent", backref="user")
 
     def update(self, profile):
         self.name = profile["personaname"]
         self.picture = profile["avatar"][-44:-4]
         self.url = profile["profileurl"].split("/")[-2]
+        self.state = profile["personastate"]
 
     @staticmethod
     def get_or_create(steam_id):

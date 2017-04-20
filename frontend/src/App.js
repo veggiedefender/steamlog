@@ -6,13 +6,20 @@ import Profile from "./components/Profile/Profile";
 import Card from "./components/Card";
 import Search from "./components/Search";
 
+const preprocess = (json) => (json.map((event) => ({
+  game_id: event.game_id,
+  start_time: new Date(event.start_time * 1000),
+  stop_time: new Date(event.stop_time * 1000)
+})));
+
 class App extends Component {
   componentDidMount() {
     fetch(`/api/events/${this.props.info.steam_id}`)
       .then((data) => data.json())
-      .then((json) => {
-        console.log(json);
-        this.setState({events: json})
+      .then((json) => preprocess(json))
+      .then((data) => {
+        console.log(data);
+        this.setState({events: data});
       })
       .catch((err) => alert(`Error: ${err}`));
   }

@@ -12,6 +12,7 @@ body {
 }
 .card_content {
   padding: 1em;
+  word-wrap: break-word;
 }
 .card_title {
   border-radius: 2px 2px 0 0;

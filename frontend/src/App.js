@@ -4,6 +4,7 @@ import "./css/skeleton.css";
 import "./css/app.css";
 import Profile from "./components/Profile/Profile";
 import Card from "./components/Card";
+import Search from "./components/Search";
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +19,11 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <div className="row">
+          <div className="twelve columns">
+            <Search />
+          </div>
+        </div>
         <div className="row">
           <div className="four columns">
             <Profile info={this.props.info} />

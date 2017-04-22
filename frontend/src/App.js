@@ -9,7 +9,8 @@ import Search from "./components/Search";
 const preprocess = (json) => (json.map((event) => ({
   game_id: event.game_id,
   start_time: new Date(event.start_time * 1000),
-  stop_time: new Date(event.stop_time * 1000)
+  stop_time: (event.stop_time == null ?
+    null : new Date(event.stop_time * 1000))
 })));
 
 class App extends Component {
@@ -26,11 +27,13 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+      
         <div className="row">
           <div className="twelve columns">
             <Search />
           </div>
         </div>
+
         <div className="row">
           <div className="four columns">
             <Profile info={this.props.info} />
@@ -39,6 +42,7 @@ class App extends Component {
             <Card>Placeholder</Card>
           </div>
         </div>
+
       </div>
     );
   }

@@ -19,5 +19,3 @@ def create_or_login(resp):
     next_url = oid.get_next_url()
     if is_safe_url(next_url):
         return redirect(next_url)
-    else:
-        abort(400)

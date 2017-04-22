@@ -104,4 +104,4 @@ class GameEvent(db.Model):
         yield "start_time", self.start_time.timestamp()
         yield "stop_time", (self.stop_time.timestamp()
                             if self.stop_time is not None
-                            else "")
+                            else None)

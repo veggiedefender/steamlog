@@ -18,8 +18,6 @@ class User(db.Model):
         self.picture = profile["avatar"][-44:-4]
         self.url = profile["profileurl"].split("/")[-2]
         self.state = profile["personastate"]
-        if profile.get("gameid") is not None:
-            self.state = 7
 
     @staticmethod
     def get_or_create(steam_id):
@@ -43,6 +41,7 @@ class User(db.Model):
         return event
 
     def play_game(self, prev, game_id, time):
+        self.state = 7
         if prev is None or prev.stop_time is not None:
             print(f"{time} {self.name} STARTED <><> {game_id}")
             if Game.query.get(game_id) is None:

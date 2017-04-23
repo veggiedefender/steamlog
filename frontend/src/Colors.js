@@ -7,4 +7,16 @@ const Colors = {
   red: "#ff3c69"
 }
 
+const StatusColors = [
+  Colors.gray,   //offline
+  Colors.blue,   //online
+  Colors.red,    //busy
+  Colors.orange, //away
+  Colors.yellow, //snooze
+  Colors.blue,   //looking to trade
+  Colors.blue,   //looking to play
+  Colors.green   //in game
+]
+
 export default Colors;
+export { StatusColors };

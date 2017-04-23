@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://162.243.163.202",
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

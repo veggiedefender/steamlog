@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./css/normalize.css";
 import "./css/skeleton.css";
 import "./css/app.css";
-import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile";
 import Card from "./components/Card";
 import Search from "./components/Search";
 

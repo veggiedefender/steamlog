@@ -5,7 +5,10 @@ export default class Card extends Component {
     const title = (
       <p
         className="card_title"
-        style={{backgroundColor: this.props.color}}
+        style={{
+          backgroundColor: this.props.color,
+          margin: 0
+        }}
       >
         {this.props.title}
       </p>

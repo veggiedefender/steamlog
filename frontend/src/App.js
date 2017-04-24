@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import "./css/normalize.css";
 import "./css/skeleton.css";
 import "./css/app.css";
+
 import Profile from "./components/Profile";
-import Card from "./components/Card";
+import ChartCard from "./components/ChartCard";
 import Search from "./components/Search";
+
+import PieChart from "./components/Charts/PieChart";
+import BarChart from "./components/Charts/BarChart";
+import LineGraph from "./components/Charts/LineGraph";
 
 const preprocess = (json) => (json.map((event) => ({
   game_id: event.game_id,
@@ -38,8 +43,25 @@ class App extends Component {
           <div className="four columns">
             <Profile info={this.props.info} />
           </div>
+          
           <div className="eight columns">
-            <Card>Placeholder</Card>
+            <ChartCard title="this is a LINE GRAPH">
+              <LineGraph />
+            </ChartCard>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="six columns">
+            <ChartCard title="this is a PIE cHART">
+              <PieChart />
+            </ChartCard>
+          </div>
+
+          <div className="six columns">
+            <ChartCard title="this is a BAR CHarT">
+              <BarChart />
+            </ChartCard>
           </div>
         </div>
 

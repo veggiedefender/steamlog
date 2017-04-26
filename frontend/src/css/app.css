@@ -1,77 +1,18 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Source Sans Pro ExtraLight'), local('SourceSansPro-ExtraLight'), url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGCVh0V6fR69OLaFLklYbiSk.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 body {
-  background-color: #fbfbfb;
-  font-family: "Roboto";
-  margin-top: 1.5em;
-}
-
-.card {
-  background-color: #fff;
-  border-radius: 1px;
-  margin: 0.5em;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-.card_content {
-  padding: 1em;
-  word-wrap: break-word;
-}
-.card_title {
-  border-radius: 2px 2px 0 0;
-  background-color: #2d2d2d;
-  color: #fff;
-  padding: 0.25em 1em;
-  font-weight: bold;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.11);
-}
-
-.profile_pic {
-  display: block;
-  border-radius: 50%;
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  margin: 1em auto 1em auto;
-}
-
-.steamProfileLink {
-  background-color: #000;
-  color: #fff;
-  text-align: left;
-  display: inline-block;
-  padding: 0.1em 0.7em;
-  border-radius: 2px;
-  user-select: none;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
-.steamProfileLink:hover {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  cursor: pointer;
-}
-.search_wrapper {
-  width: calc(100% - 1em);
-  margin: 0.5em;
-}
-.search {
-  width: 100%;
   margin: 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-} .search_wrapper:hover .search, .search:focus {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-.fa-search {
-  position: absolute;
-  top: 23px;
-  right: 45px;
-  font-size: 20px;
-  color: #757575;
-  cursor: pointer;
-} .fa-search:hover {
-  color: #000;
+  background-color: #1F487E;
+  font-family: "Roboto", sans-serif;
 }
 
-@media (min-width: 400px) {
-  .fa-search {
-    right: 27px;
-  }
+.app {
+  display: flex;
+  flex-direction: column;
 }

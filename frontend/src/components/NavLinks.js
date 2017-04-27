@@ -4,8 +4,9 @@ export default class NavLinks extends Component {
   render() {
     return (
       <div className="navLinks">
-        <a href="#">sign in</a>
-        <a href="#">global stats</a>
+        {this.props.items.map((item, i) => (
+          <a href={item.link} key={i}>{item.text}</a>
+        ))}
       </div>
     );
   }

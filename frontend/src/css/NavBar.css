@@ -8,11 +8,16 @@
   color: #fff;
 }
 
+.nav a {
+  text-decoration: none;
+  color: inherit;
+}
 .nav h1 {
   flex: 1;
   margin: 5px 10px 0 0;
   font-weight: lighter;
-  font-size: 40px;  
+  font-size: 40px;
+  user-select: none;
   font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -21,7 +26,7 @@
   padding: 6px 0;
 }
 
-.search {
+.nav .search {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -34,29 +39,29 @@
   color: #a0c1ff;
   font-family: inherit;
   font-size: inherit;
-} .search:focus {
+} .nav .search:focus {
   background-color: #fff;
   color: #8c8c8c;
 }
-.search::placeholder {
+.nav .search::placeholder {
   color: inherit;
 }
 
-.navLinks {
+.nav .navLinks {
   flex: 1;
   display: flex;
   flex-direction: row-reverse;
 }
-.navLinks a {
+.nav .navLinks a {
   color: #a0c1ff;
   text-decoration: none;
   text-transform: uppercase;
   padding: 20px;
   white-space:nowrap;
-} .navLinks a:hover {
+} .nav .navLinks a:hover {
   color: #fff;
-} .navLinks a:first-child {
+} .nav .navLinks a:first-child {
   padding-right: 10px;
-} .navLinks a:last-child {
+} .nav .navLinks a:last-child {
   padding-left: 10px;
 }

@@ -10,7 +10,7 @@ export default class NavBar extends Component {
     this.items = [
       {text: "global stats", link: "/"},
       {text: "sign in", link: "/login"}
-    ];
+    ].reverse();
   }
   render() {
     return (

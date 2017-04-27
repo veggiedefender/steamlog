@@ -9,6 +9,7 @@ export default class Search extends Component {
           className="search"
           placeholder="Search players"
         />
+        <i className="fa fa-search" aria-hidden="true"></i>
       </div>
     );
   }

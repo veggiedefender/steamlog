@@ -4,8 +4,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background-color: #1D3461;
-  padding: 0 10px;
-  color: #fff;
+  padding: 0 10px;  
+  box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.38);
 }
 
 .nav a {
@@ -15,17 +15,25 @@
 .nav h1 {
   flex: 1;
   margin: 5px 10px 0 0;
+  color: #fff;
   font-weight: lighter;
   font-size: 40px;
   user-select: none;
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.nav .fa {
+  position: absolute;
+  top: 21px;
+  right: 16px;
+  font-size: 18px;
+}
+
 .nav .search_wrapper {
   flex: 2;
   padding: 6px 0;
+  position: relative;
 }
-
 .nav .search {
   box-sizing: border-box;
   width: 100%;
@@ -39,15 +47,17 @@
   color: #a0c1ff;
   font-family: inherit;
   font-size: inherit;
-} .nav .search::placeholder {
+} .nav .search::placeholder, .nav .search + .fa {
   color: #a0c1ff;
 } .nav .search:focus {
   background-color: #fff;
   color: #404040;
-} .nav .search:focus::placeholder {
+} .nav .search:focus::placeholder, .nav .search:focus + .fa {
   color: #8c8c8c;
+} .nav .search:focus + .fa:hover {
+  cursor: pointer;
+  color: #404040;
 }
-
 
 .nav .navLinks {
   flex: 1;

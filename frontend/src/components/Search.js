@@ -7,7 +7,7 @@ export default class Search extends Component {
         <input
           type="text"
           className="search"
-          placeholder="Search"
+          placeholder="Search players"
         />
       </div>
     );

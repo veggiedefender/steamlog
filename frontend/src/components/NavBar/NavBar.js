@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../css/NavBar.css";
+import "../../css/NavBar.css";
 
 import Search from "./Search";
 import NavLinks from "./NavLinks";

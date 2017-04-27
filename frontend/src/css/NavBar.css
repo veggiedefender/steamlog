@@ -39,13 +39,15 @@
   color: #a0c1ff;
   font-family: inherit;
   font-size: inherit;
+} .nav .search::placeholder {
+  color: #a0c1ff;
 } .nav .search:focus {
   background-color: #fff;
+  color: #404040;
+} .nav .search:focus::placeholder {
   color: #8c8c8c;
 }
-.nav .search::placeholder {
-  color: inherit;
-}
+
 
 .nav .navLinks {
   flex: 1;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./css/app.css";
 
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import Content from "./components/Content";
 
 const convertDates = (json) => json.map((event) => ({

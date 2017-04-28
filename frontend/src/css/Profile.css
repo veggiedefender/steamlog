@@ -27,7 +27,7 @@
 .profile h1 {
   font-family: "Source Sans Pro", sans-serif;
   display: inline-block;
-  margin-top: 0;
+  margin: 0;
 }
 .profile .status {
   font-size: 15px;
@@ -37,8 +37,5 @@
   color: #fff;
   display: inline-block;
   position: relative;
-  max-width: 150px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  top: -7px;
 }

@@ -8,14 +8,14 @@ const Colors = {
 }
 
 const StatusColors = [
-  [Colors.gray, "offline"],   //offline
-  [Colors.blue, "online"],   //online
-  [Colors.red, "busy"],    //busy
-  [Colors.orange, "away"], //away
-  [Colors.yellow, "snooze"], //snooze
-  [Colors.blue, "looking to trade"],   //looking to trade
-  [Colors.blue, "looking to play"],   //looking to play
-  [Colors.green, "in game"]   //in game
+  [Colors.gray, "offline"],
+  [Colors.blue, "online"],
+  [Colors.red, "busy"],
+  [Colors.orange, "away"],
+  [Colors.yellow, "snooze"],
+  [Colors.blue, "looking to trade"],
+  [Colors.blue, "looking to play"],
+  [Colors.green, "in game"]
 ]
 
 export default Colors;

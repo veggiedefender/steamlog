@@ -12,7 +12,8 @@ export default class Profile extends Component {
     const background = `linear-gradient(to bottom, ${color} 0%, ${color} 45%, #000000 45%, white 45%, white 100%)`;
     return (
       <div className="card profile">
-        <div className="image_wrapper" style={{background: background}}>
+        <i className="fa fa-refresh" aria-hidden="true" onClick={this.props.refresh}></i>
+        <div className="image_wrapper" style={{background: background}}>          
           <img src={image_url} alt="profile avatar" />
         </div>
         <div className="title">

@@ -20,6 +20,7 @@ async function getData(steam_id, scale="week") {
 class App extends Component {
   constructor() {
     super();
+    this.refresh = this.refresh.bind(this);
     this.state = {
       info: window.info,
       events: []
@@ -30,6 +31,9 @@ class App extends Component {
     console.log(data);
     this.setState({events: data});
   }
+  refresh() {
+    console.log("TODO: refresh data");
+  }
   render() {
     return (
       <div className="app">
@@ -38,6 +42,7 @@ class App extends Component {
           <Content
             info={this.state.info}
             events={this.state.events}
+            refresh={this.refresh}
           />
         </div>
       </div>

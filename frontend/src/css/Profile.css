@@ -3,12 +3,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 
 .profile .image_wrapper {
   display: block;
   width: 100%;
   border-radius: 2px 2px 0 0;
+  position: relative;
+  top: -2px;
 }
 
 .profile img {
@@ -43,4 +46,17 @@
   color: #fff;
   position: relative;
   top: -7px;
+}
+
+.profile .fa-refresh {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 15px;
+  font-size: 30px;
+  color: #fff;
+  z-index: 1;
+} .profile .fa-refresh:hover {
+  cursor: pointer;
+  color: #e4e4e4;
 }

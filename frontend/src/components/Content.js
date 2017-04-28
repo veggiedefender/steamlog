@@ -16,6 +16,7 @@ export default class Content extends Component {
         <Profile
           info={this.props.info}
           events={this.props.events}
+          refresh={this.props.refresh}
         />
 
         <div className="row">

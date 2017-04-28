@@ -4,8 +4,9 @@ import "./css/app.css";
 import NavBar from "./components/NavBar/NavBar";
 import Content from "./components/Content";
 
-const convertDates = (json) => json.map((event) => ({
+const convertEvents = (json) => json.events.map((event) => ({
   game_id: event.game_id,
+  name: json.names[event.game_id],
   start_time: new Date(event.start_time * 1000),
   stop_time: (event.stop_time == null ?
     null : new Date(event.stop_time * 1000))
@@ -13,7 +14,7 @@ const convertDates = (json) => json.map((event) => ({
 
 async function getData(steam_id, scale="week") {
   let data = await fetch(`/api/events/${steam_id}`);
-  return convertDates(await data.json());
+  return convertEvents(await data.json());
 }
 
 class App extends Component {
@@ -21,7 +22,7 @@ class App extends Component {
     super();
     this.state = {
       info: window.info,
-      events: {}
+      events: []
     }
   }
   async componentDidMount() {

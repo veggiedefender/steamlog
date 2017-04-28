@@ -7,7 +7,10 @@ export default class Content extends Component {
   render() {
     return (
       <div className="content">
-        <Profile info={this.props.info}/>
+        <Profile
+          info={this.props.info}
+          events={this.props.events}
+        />
       </div>
     );
   }

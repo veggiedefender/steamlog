@@ -26,7 +26,9 @@ class App extends Component {
     return (
       <div className="app">
         <NavBar />
-        <Content />
+        <div className="container">
+          <Content />
+        </div>
       </div>
     );
   }

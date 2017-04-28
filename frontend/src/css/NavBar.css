@@ -14,7 +14,7 @@
 }
 .nav h1 {
   flex: 1;
-  margin: 5px 10px 0 0;
+  margin: 7px 10px 0 0;
   color: #fff;
   font-weight: lighter;
   font-size: 40px;
@@ -24,8 +24,9 @@
 
 .nav .fa {
   position: absolute;
-  top: 21px;
-  right: 16px;
+  padding: 8px;
+  top: 14px;
+  right: 11px;
   font-size: 18px;
 }
 
@@ -47,6 +48,7 @@
   color: #a0c1ff;
   font-family: inherit;
   font-size: inherit;
+  transition: 0.2s ease;
 } .nav .search::placeholder, .nav .search + .fa {
   color: #a0c1ff;
 } .nav .search:focus {
@@ -68,7 +70,7 @@
   color: #a0c1ff;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 20px;
+  padding: 22px 20px 20px 20px;
   white-space:nowrap;
 } .nav .navLinks a:hover {
   color: #fff;

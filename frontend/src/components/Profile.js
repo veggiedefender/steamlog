@@ -17,9 +17,9 @@ export default class Profile extends Component {
         </div>
         <div className="title">
           <h1>{this.props.info.name}</h1>
-          <div className="status" style={{backgroundColor: color}}>
+          <p className="status" style={{backgroundColor: color}}>
             {message}
-          </div>
+          </p>
         </div>
         <SteamProfileLink steam_id={this.props.info.steam_id} />
       </div>

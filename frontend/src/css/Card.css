@@ -9,6 +9,7 @@
 
 .card .heading {
   padding: 10px;
-  background-color: #7abaff;
+  background-image: linear-gradient(to right, rgba(122,186,255,1) 0%, rgba(122,186,255,1) 30%, rgba(113,149,214,1) 100%);
   color: #ffffff;
+  border-radius: 2px;
 }

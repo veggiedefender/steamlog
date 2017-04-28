@@ -17,6 +17,13 @@ async function getData(steam_id, scale="week") {
 }
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      info: window.info,
+      events: {}
+    }
+  }
   async componentDidMount() {
     let data = await getData(this.props.info.steam_id);
     console.log(data);
@@ -27,7 +34,10 @@ class App extends Component {
       <div className="app">
         <NavBar />
         <div className="container">
-          <Content />
+          <Content
+            info={this.state.info}
+            events={this.state.events}
+          />
         </div>
       </div>
     );

@@ -1,0 +1,41 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile .image_wrapper {
+  display: block;
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+}
+
+.profile img {
+  border-radius: 50%;
+  display: block;
+  border: 10px solid white;
+  background-color: white;
+  margin: 40px auto 0 auto;
+}
+
+.profile .title {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.profile h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  display: inline-block;
+  margin-top: 0;
+}
+.profile .status {
+  font-size: 15px;
+  margin-left: 1.5ch;
+  padding: 3px;
+  border-radius: 1px;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  top: -6px;
+}

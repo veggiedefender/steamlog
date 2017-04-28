@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../css/Content.css";
+import "../css/Card.css";
 
 import Profile from "./Profile";
 
@@ -7,6 +7,7 @@ import BarChart from "./Charts/BarChart";
 import PieChart from "./Charts/PieChart";
 import LineGraph from "./Charts/LineGraph";
 
+import Heading from "./Heading";
 
 export default class Content extends Component {
   render() {
@@ -19,15 +20,18 @@ export default class Content extends Component {
 
         <div className="row">
           <div className="card">
+            <Heading text="Bar Chart" />
             <BarChart />
           </div>
 
           <div className="card">
+            <Heading text="Pie Chart" />
             <PieChart />
           </div>
         </div>
 
         <div className="card">
+          <Heading text="Line Graph" />
           <LineGraph />
         </div>
       </div>

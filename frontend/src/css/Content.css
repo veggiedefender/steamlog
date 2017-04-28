@@ -1,8 +1,0 @@
-.card {
-  width: calc(100% - 1em);
-  min-width: 210px;
-  background-color: #fff;
-  border-radius: 2px;
-  margin: 0.5em;
-  flex: 1;
-}

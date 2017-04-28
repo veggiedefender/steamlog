@@ -1,0 +1,14 @@
+.card {
+  width: calc(100% - 0.6em);
+  min-width: 210px;
+  background-color: #fff;
+  border-radius: 2px;
+  margin: 0.3em;
+  flex: 1;
+}
+
+.card .heading {
+  padding: 10px;
+  background-color: #7abaff;
+  color: #ffffff;
+}

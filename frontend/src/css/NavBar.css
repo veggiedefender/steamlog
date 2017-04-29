@@ -86,8 +86,9 @@
 }
 .searchResults .result {
   display: flex;
+  flex-wrap: wrap;
   margin: 0;
-  padding: 10px;
+  padding: 2px 10px;
 } .searchResults .result:hover {
   background-color: #f5f5f5;
 }
@@ -98,7 +99,7 @@
 }
 .searchResults .name {
   font-size: 17px;
-  margin-left: 1.5ch;
+  margin: 0 0 0.5em 1.5ch;
   text-transform: uppercase;
   position: relative;
   top: 17px;

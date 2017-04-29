@@ -18,6 +18,7 @@ export default class Content extends Component {
           info={this.props.info}
           events={this.props.events}
           refresh={this.props.refresh}
+          refreshing={this.props.refreshing ? "spinning" : null}
         />
 
         <div className="row">

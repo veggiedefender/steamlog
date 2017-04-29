@@ -1,6 +1,6 @@
 .card {
   width: calc(100% - 1em);
-  min-width: 210px;
+  min-width: 300px;
   background-color: #fff;
   border-radius: 2px;
   margin: calc(0.5em + 1px) 0.5em;

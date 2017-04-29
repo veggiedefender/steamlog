@@ -25,7 +25,8 @@ class App extends Component {
     this.refresh = this.refresh.bind(this);
     this.state = {
       info: window.info,
-      events: []
+      events: [],
+      refreshing: false
     }
   }
   async componentDidMount() {
@@ -34,13 +35,15 @@ class App extends Component {
   }
   async refresh() {
     this.setState({
-      events: []
+      events: [],
+      refreshing: true
     });
     let info = fetch(`/api/profiles/${this.props.info.steam_id}`);
     let events = getData(this.props.info.steam_id);
     this.setState({
       info: await (await info).json(),
-      events: await events
+      events: await events,
+      refreshing: false
     })
   }
   render() {
@@ -52,6 +55,7 @@ class App extends Component {
             info={this.state.info}
             events={this.state.events}
             refresh={this.refresh}
+            refreshing={this.state.refreshing}
           />
         </div>
       </div>

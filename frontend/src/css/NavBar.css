@@ -107,12 +107,3 @@
   position: relative;
   top: -1px;
 }
-
-.search_wrapper .backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 2;
-}

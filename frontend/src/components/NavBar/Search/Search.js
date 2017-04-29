@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import SearchResults from "./SearchResults";
+
 
 export default class Search extends Component {
   constructor() {
@@ -9,7 +11,16 @@ export default class Search extends Component {
     }
     this.delay = this.delay.bind(this);
     this.search = this.search.bind(this);
+    this.close = this.close.bind(this);
     this.timeout = null;
+  }
+  componentWillMount() {
+    document.addEventListener("click", this.close, false);
+  }
+  close(e) {
+    if(!ReactDOM.findDOMNode(this).contains(e.target)) {
+      this.setState({results: []})
+    }
   }
   delay(e) {
     e.persist();
@@ -24,10 +35,6 @@ export default class Search extends Component {
   render() {
     return (
       <div className="search_wrapper">
-        <div
-          className="backdrop"
-          onClick={() => this.setState({results: []})}>
-        </div>
         <input
           type="text"
           className="search"

@@ -1,9 +1,9 @@
 .card {
-  width: calc(100% - 0.6em);
+  width: calc(100% - 1em);
   min-width: 210px;
   background-color: #fff;
   border-radius: 2px;
-  margin: 0.3em;
+  margin: calc(0.5em + 1px) 0.5em;
   flex: 1;
 }
 

@@ -14,7 +14,9 @@ const convertEvents = (json) => json.events.map((event) => ({
 
 async function getData(steam_id, scale="week") {
   let data = await fetch(`/api/events/${steam_id}`);
-  return convertEvents(await data.json());
+  data = convertEvents(await data.json());
+  console.log(data);
+  return data;
 }
 
 class App extends Component {
@@ -28,11 +30,18 @@ class App extends Component {
   }
   async componentDidMount() {
     let data = await getData(this.props.info.steam_id);
-    console.log(data);
     this.setState({events: data});
   }
-  refresh() {
-    console.log("TODO: refresh data");
+  async refresh() {
+    this.setState({
+      events: []
+    });
+    let info = fetch(`/api/profiles/${this.props.info.steam_id}`);
+    let events = getData(this.props.info.steam_id);
+    this.setState({
+      info: await (await info).json(),
+      events: await events
+    })
   }
   render() {
     return (

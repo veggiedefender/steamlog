@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../css/NavBar.css";
 
-import Search from "./Search";
+import Search from "./Search/Search";
 import NavLinks from "./NavLinks";
 
 export default class NavBar extends Component {

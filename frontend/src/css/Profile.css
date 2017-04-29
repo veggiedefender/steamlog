@@ -20,6 +20,7 @@
   border: 10px solid white;
   background-color: white;
   margin: 40px auto 0 auto;
+  user-select: none;
 }
 
 .profile .title {

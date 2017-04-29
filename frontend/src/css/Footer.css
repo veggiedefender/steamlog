@@ -1,0 +1,21 @@
+footer {
+  padding: 1em;
+  background-color: #1d3461;
+  color: #a0c1ff;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer p {
+  margin: 0 1ch;
+}
+
+footer a {
+  color: inherit;
+} footer a:hover {
+  color: #fff;
+}
+
+footer span {
+  margin: 0 0.5ch;
+}

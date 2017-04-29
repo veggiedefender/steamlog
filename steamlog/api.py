@@ -23,13 +23,13 @@ def search():
     term = request.args.get("q")
     if term is None or len(term) == 0:
         return jsonify([])
-    term = func.lower(term)
+    term = func.lower(term.replace('%', '\%').replace('_', '\_'))
     users = (
         User.query
         .filter(or_(
-            func.lower(User.steam_id).contains(term),
-            func.lower(User.url).contains(term),
-            func.lower(User.name).contains(term)
+            func.lower(User.steam_id).contains(term, escape='\\'),
+            func.lower(User.url).contains(term, escape='\\'),
+            func.lower(User.name).contains(term, escape='\\')
         ))
         .limit(10)
         .all()

@@ -13,6 +13,12 @@ class User(db.Model):
     state = db.Column(db.Integer, nullable=False)
     game_events = db.relationship("GameEvent", backref="user")
 
+    def __iter__(self):
+        yield "steam_id", self.steam_id
+        yield "name", self.name
+        yield "picture", self.picture
+        yield "state", self.state
+
     def update(self, profile):
         self.name = profile["personaname"]
         self.picture = profile["avatar"][-44:-4]

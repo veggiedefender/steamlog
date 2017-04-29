@@ -3,7 +3,6 @@ import "./css/app.css";
 
 import NavBar from "./components/NavBar/NavBar";
 import Content from "./components/Content";
-import Footer from "./components/Footer";
 
 const convertEvents = (json) => json.events.map((event) => ({
   game_id: event.game_id,
@@ -58,7 +57,6 @@ class App extends Component {
             refreshing={this.state.refreshing}
           />
         </div>
-        <Footer />
       </div>
     );
   }

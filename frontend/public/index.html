@@ -6,12 +6,7 @@
     <script src="https://use.fontawesome.com/107a50b4ae.js"></script>
     <title>steametrics</title>
     <script>
-    window.info = {        
-      name: "{{user.name}}",
-      steam_id: "{{user.steam_id}}",
-      state: {{user.state}},
-      picture: "{{user.picture}}"
-    }
+    window.info = {{ dict(user) | tojson | safe }}
     </script>
   </head>
   <body>

@@ -42,14 +42,14 @@
 .profile .fa-refresh {
   position: absolute;
   right: 0;
-  top: 0;
+  top: -2px;
   padding: 15px;
   font-size: 30px;
   color: #fff;
   z-index: 1;
 } .profile .fa-refresh:hover {
   cursor: pointer;
-  color: #e4e4e4;
+  color: #f9f9f9;
 }
 
 .spinning {

@@ -35,7 +35,6 @@ class App extends Component {
   }
   async refresh() {
     this.setState({
-      events: [],
       refreshing: true
     });
     let info = fetch(`/api/profiles/${this.props.info.steam_id}`);

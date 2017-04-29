@@ -18,6 +18,12 @@ def events(steam_id):
     })
 
 
+@app.route("/api/profiles/<steam_id>")
+def user_info(steam_id):
+    user = User.query.filter_by(steam_id=steam_id).first_or_404()
+    return jsonify(dict(user))
+
+
 @app.route("/api/search")
 def search():
     term = request.args.get("q")

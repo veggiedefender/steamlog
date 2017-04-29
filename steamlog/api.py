@@ -3,6 +3,7 @@ from steamlog.utils import stats
 from steamlog.models import User
 from steamlog import app, db
 from sqlalchemy import or_
+from sqlalchemy import func
 
 
 @app.route("/api/events/<steam_id>")
@@ -17,21 +18,18 @@ def events(steam_id):
     })
 
 
-@app.route("/api/search", methods=["POST"])
+@app.route("/api/search")
 def search():
-    data = request.get_json()
-    if data is None or data.get("term") is None:
+    term = request.args.get("q")
+    if term is None or len(term) == 0:
         return jsonify([])
-    term = data["term"].strip()
-    if len(term) == 0:
-        return jsonify([])
-
+    term = func.lower(term)
     users = (
-        db.session.query(User)
+        User.query
         .filter(or_(
-            User.steam_id.contains(term),
-            User.url.contains(term),
-            User.name.contains(term)
+            func.lower(User.steam_id).contains(term),
+            func.lower(User.url).contains(term),
+            func.lower(User.name).contains(term)
         ))
         .limit(10)
         .all()

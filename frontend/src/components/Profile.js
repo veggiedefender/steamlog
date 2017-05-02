@@ -9,13 +9,13 @@ import StatusIndicator from "./StatusIndicator";
 export default class Profile extends Component {
   render() {
     const image_url = `${ProfilePic}${this.props.info.picture}_full.jpg`;
-    let color = StatusColors[this.props.info.state][0];
+    const color = StatusColors[this.props.info.state][0];
     const background = `linear-gradient(to bottom, ${color} 0%, ${color} 45%, #000000 45%, white 45%, white 100%)`;
-    const refresh = "fa fa-refresh " + this.props.refreshing
+    const refresh = "fa fa-refresh " + (this.props.refreshing ? "spinning" : "");
     return (
       <div className="card profile">
         <i className={refresh} aria-hidden="true" onClick={this.props.refresh}></i>
-        <div className="image_wrapper" style={{background: background}}>          
+        <div className="image_wrapper" style={{backgroundImage: background}}>          
           <img src={image_url} alt="profile avatar" />
         </div>
         <div className="title">

@@ -63,3 +63,8 @@ body {
   position: relative;
   top: -7px;
 }
+
+.noData, .loading {
+  width: 100%;
+  height: 100%;
+}

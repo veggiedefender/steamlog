@@ -4,9 +4,9 @@
   "private": true,
   "proxy": "http://162.243.163.202",
   "dependencies": {
+    "chart.js": "^2.5.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "victory": "^0.18.4"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

@@ -6,9 +6,7 @@ import { StatusColors } from "./Colors";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 
-import BarChart from "./components/Charts/BarChart";
 import PieChart from "./components/Charts/PieChart";
-import LineGraph from "./components/Charts/LineGraph";
 
 import Profile from "./components/Profile";
 import Heading from "./components/Heading";
@@ -70,21 +68,18 @@ class App extends Component {
           <div className="row">
             <div className="card">
               <Heading text="Bar Chart" color={color} />
-              <BarChart />
             </div>
 
             <div className="card">
               <Heading text="Game Breakdown" color={color} />
               <PieChart
                 events={this.state.events}
-                game_names={this.state.game_names}
               />
             </div>
           </div>
 
           <div className="card">
             <Heading text="Line Graph" color={color} />
-            <LineGraph />
           </div>
         </div>
 

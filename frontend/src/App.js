@@ -68,7 +68,7 @@ class App extends Component {
 
           <div className="card">
             <Heading text="Stacked Area" color={color} />
-            <StackedArea />
+            <StackedArea events={this.state.events} />
           </div>
 
           <div className="row">
@@ -78,9 +78,7 @@ class App extends Component {
 
             <div className="card">
               <Heading text="Game Breakdown" color={color} />
-              <PieChart
-                events={this.state.events}
-              />
+              <PieChart events={this.state.events} />
             </div>
           </div>
         </div>

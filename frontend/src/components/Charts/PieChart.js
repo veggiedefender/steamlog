@@ -38,12 +38,11 @@ export default class PieChart extends Component {
       points.labels.push(point.game_name);
       points.datasets[0].data.push(point.time);
     });
-    console.log(data);
     return (
       <div className="chart">
         <Pie
-          width="100%"
-          height="100%"
+          width={100}
+          height={100}
           data={points}
           options={{
             cutoutPercentage: 45,

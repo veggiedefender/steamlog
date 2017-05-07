@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 
 import PieChart from "./components/Charts/PieChart";
+import StackedArea from "./components/Charts/StackedArea";
 
 import Profile from "./components/Profile";
 import Heading from "./components/Heading";
@@ -65,6 +66,11 @@ class App extends Component {
             refreshing={this.state.refreshing}
           />
 
+          <div className="card">
+            <Heading text="Stacked Area" color={color} />
+            <StackedArea />
+          </div>
+
           <div className="row">
             <div className="card">
               <Heading text="Bar Chart" color={color} />
@@ -77,14 +83,9 @@ class App extends Component {
               />
             </div>
           </div>
-
-          <div className="card">
-            <Heading text="Line Graph" color={color} />
-          </div>
         </div>
 
         <Footer />
-
       </div>
     );
   }

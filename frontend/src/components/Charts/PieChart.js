@@ -48,6 +48,16 @@ export default class PieChart extends Component {
           responsive: true,
           legend: {
             display: false
+          },
+          tooltips: {
+            callbacks: {
+              label: (tooltipItem, data) => {
+                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                var tooltipLabel = data.labels[tooltipItem.index];
+                var hours = allData[tooltipItem.index] / 3600000;
+                return `${tooltipLabel}: ${hours.toFixed(2)} hours`;
+              }
+            }
           }
         }
       });

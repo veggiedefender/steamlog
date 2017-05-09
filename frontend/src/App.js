@@ -6,6 +6,7 @@ import { StatusColors } from "./Colors";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 
+import Frequency from "./components/Charts/Frequency";
 import PieChart from "./components/Charts/PieChart";
 import StackedArea from "./components/Charts/StackedArea";
 
@@ -67,7 +68,7 @@ class App extends Component {
           />
 
           <div className="card">
-            <Heading text="Stacked Area" color={color} />
+            <Heading text="Session Length" color={color} />
             <StackedArea events={this.state.events} />
           </div>
 

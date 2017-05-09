@@ -19,7 +19,8 @@ export default class StackedArea extends Component {
         <Line
           data={{
             datasets: [{
-              data: points
+              data: points,
+              tension: 0
             }]
           }}
           options={{

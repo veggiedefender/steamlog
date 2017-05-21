@@ -78,7 +78,7 @@ class App extends Component {
 
           <div className="row">
             <div className="card">
-              <Heading text="Weekday" color={color} />
+              <Heading text="Weekday Averages" color={color} />
               <Weekday events={this.state.events} />
             </div>
 

@@ -15,11 +15,11 @@ def index():
 
 @app.route("/profiles/<steam_id>")
 def profile_page_steam_id(steam_id):
-    user = User.query.filter_by(steam_id=steam_id).first_or_404()
-    return render_template("index.html", user=user)
+    profile = User.query.filter_by(steam_id=steam_id).first_or_404()
+    return render_template("index.html", profile=profile, user=current_user)
 
 
 @app.route("/id/<url>")
 def profile_page_url(url):
-    user = User.query.filter_by(url=url).first_or_404()
-    return render_template("index.html", user=user)
+    profile = User.query.filter_by(url=url).first_or_404()
+    return render_template("index.html", profile=profile, user=current_user)

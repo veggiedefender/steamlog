@@ -6,7 +6,7 @@
     <script src="https://use.fontawesome.com/107a50b4ae.js"></script>
     <title>steametrics</title>
     <script>
-    window.info = {{ dict(user) | tojson | safe }}
+    window.info = {{ dict(profile) | tojson | safe }}; window.loggedIn = {{ user.is_authenticated | tojson }};
     </script>
   </head>
   <body>

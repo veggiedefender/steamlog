@@ -33,6 +33,7 @@ class App extends Component {
     this.refresh = this.refresh.bind(this);
     this.state = {
       info: window.info,
+      loggedIn: window.loggedIn,
       events: [],
       refreshing: false
     }
@@ -57,7 +58,7 @@ class App extends Component {
     const color = StatusColors[this.state.info.state][0];
     return (
       <div className="app">
-        <NavBar />
+        <NavBar loggedIn={this.state.loggedIn} />
 
         <div className="container">
           <Profile

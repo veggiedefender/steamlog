@@ -5,6 +5,7 @@ import "../css/Profile.css";
 import SteamProfileLink from "./SteamProfileLink";
 import { ProfilePic } from "../Constants";
 import StatusIndicator from "./StatusIndicator";
+import DropDown from "./DropDown";
 
 export default class Profile extends Component {
   render() {
@@ -14,7 +15,10 @@ export default class Profile extends Component {
     const refresh = "fa fa-refresh " + (this.props.refreshing ? "spinning" : "");
     return (
       <div className="card profile">
-        <i className={refresh} aria-hidden="true" onClick={this.props.refresh}></i>
+        <div className="controls">
+          <DropDown />
+          <i className={refresh} aria-hidden="true" onClick={this.props.refresh}></i>
+        </div>
         <div className="image_wrapper" style={{backgroundImage: background}}>          
           <img src={image_url} alt="profile avatar" />
         </div>

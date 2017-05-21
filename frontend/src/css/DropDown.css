@@ -1,0 +1,29 @@
+.dropdown {
+  display: inline-block;
+  color: #fff;
+  font-size: 20px;
+}
+
+.dropdown .current {
+  padding: 8px 8px 8px 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dropdown .options {
+  position: absolute;
+  color: #000;
+  background-color: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+  font-size: 17px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.dropdown .options p {
+  margin: 0;
+  padding: 6px 8px;
+  cursor: pointer;
+} .dropdown .options p:hover {
+  background-color: #f5f5f5;
+}

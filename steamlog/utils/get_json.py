@@ -9,6 +9,7 @@ def get_json(url):
     while True:
         try:
             r = requests.get(url).json()
+            assert r is not None
         except Exception:
             time.sleep(1)
             continue

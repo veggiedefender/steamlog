@@ -6,9 +6,9 @@ import { StatusColors } from "./Colors";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 
-import Frequency from "./components/Charts/Frequency";
 import PieChart from "./components/Charts/PieChart";
-import StackedArea from "./components/Charts/StackedArea";
+import SessionLength from "./components/Charts/SessionLength";
+import Log from "./components/Charts/Log";
 
 import Profile from "./components/Profile";
 import Heading from "./components/Heading";
@@ -68,9 +68,11 @@ class App extends Component {
             refreshing={this.state.refreshing}
           />
 
-          <div className="card">
-            <Heading text="Session Length" color={color} />
-            <StackedArea events={this.state.events} />
+          <div className="row">
+            <div className="card">
+              <Heading text="Session Length" color={color} />
+              <SessionLength events={this.state.events} />
+            </div>
           </div>
 
           <div className="row">
@@ -81,6 +83,13 @@ class App extends Component {
             <div className="card">
               <Heading text="Game Breakdown" color={color} />
               <PieChart events={this.state.events} />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="card">
+              <Heading text="Full Log" color={color} />
+              <Log events={this.state.events} color={color} />
             </div>
           </div>
         </div>

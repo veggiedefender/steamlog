@@ -19,7 +19,8 @@ export default class Log extends Component {
     return(
       <p>
         {format(event.start_time)} - {format(event.stop_time)}
-        <span> {event.game_name}</span>
+        <span> {event.game_name} </span>
+        ({((event.stop_time - event.start_time) / 3600000).toFixed(2)} hours)
       </p>
     )
   }

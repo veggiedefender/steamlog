@@ -37,6 +37,14 @@ export default class Weekday extends Component {
                   return `${hours.toFixed(2)} hours`;
                 }
               }
+            },
+            scales: {
+              xAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  min: 0
+                }
+              }]
             }
           }}
         />

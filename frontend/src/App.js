@@ -92,6 +92,7 @@ class App extends Component {
               <Log events={this.state.events} color={color} />
             </div>
           </div>
+          
         </div>
 
         <Footer />

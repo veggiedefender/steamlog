@@ -39,6 +39,7 @@ export default class Log extends Component {
         <button
           style={{backgroundColor: this.props.color}}
           onClick={(e) => this.setState({ full: !this.state.full })}
+          className={this.state.full ? "clear" : ""}
         >
         VIEW {this.state.full ? "LESS" : "MORE"}
         </button>

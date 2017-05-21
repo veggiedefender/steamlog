@@ -5,13 +5,9 @@ export default class Weekday extends Component {
   render() {
     let points = this.props.events.reduce((totals, event) => {
       let elapsed = (event.stop_time - event.start_time) / 3600000;
-      totals[event.start_time.getDay()].push(elapsed);
+      totals[event.start_time.getDay()] += elapsed;
       return totals;
-    }, [[],[],[],[],[],[],[]]);
-    points = points.map((hours) => {
-      let total = hours.reduce((total, hour) => total += hour, 0);
-      return total / hours.length;
-    });
+    }, [0,0,0,0,0,0,0]);
 
     const data = {
       labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],

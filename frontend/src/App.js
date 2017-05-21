@@ -6,6 +6,7 @@ import { StatusColors } from "./Colors";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer";
 
+import Weekday from "./components/Charts/Weekday";
 import PieChart from "./components/Charts/PieChart";
 import SessionLength from "./components/Charts/SessionLength";
 import Log from "./components/Charts/Log";
@@ -77,7 +78,8 @@ class App extends Component {
 
           <div className="row">
             <div className="card">
-              <Heading text="Bar Chart" color={color} />
+              <Heading text="Weekday" color={color} />
+              <Weekday events={this.state.events} />
             </div>
 
             <div className="card">

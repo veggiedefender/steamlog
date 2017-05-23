@@ -2,5 +2,6 @@ flask
 Flask-OpenID
 Flask-Login
 Flask-SQLAlchemy
+Flask-Migrate
 psycopg2
 requests

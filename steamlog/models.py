@@ -82,6 +82,7 @@ class Game(db.Model):
     __tablename__ = "games"
     id = db.Column(db.Integer, primary_key=True, autoincrement=False)
     name = db.Column(db.String(255), index=True, nullable=False)
+    genres = db.Column(db.ARRAY(db.String(255)))
     game_events = db.relationship("GameEvent", backref="game")
 
     @staticmethod

@@ -1,5 +1,5 @@
 from time import sleep
-from steamlog import app
+from steamlog import app, db
 from steamlog.utils import get_json
 from steamlog.models import Game
 
@@ -10,9 +10,14 @@ def get_genres():
     games = Game.query.all()
 
     for game in games:
-        r = get_json(URL + str(game.id))[str(game.id)]
-        if r["success"]:
+        json = get_json(URL + str(game.id))[str(game.id)]
+        if json["success"]:
             try:
-                print(r["data"]["genres"])
+                genres = json["data"]["genres"]
+                genres = [genre["description"] for genre in genres]
+                print(f"{game.name}: {genres}")
+                game.genres = genres
+                db.session.add(game)
+                db.session.commit()
             except KeyError:
                 pass

@@ -2,7 +2,7 @@
 #ln -s /etc/nginx/sites-available/steamlog /etc/nginx/sites-enabled
 server {
     listen 80;
-    server_name 162.243.163.202;
+    server_name 13.82.172.178;
 
     location / {
         include uwsgi_params;

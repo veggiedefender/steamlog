@@ -7,7 +7,7 @@ URL = app.config["STEAM_APPDETAILS"]
 
 
 def get_genres():
-    games = Game.query.all()
+    games = Game.query.filter(Game.genres == None).all()
 
     for game in games:
         json = get_json(URL + str(game.id))[str(game.id)]
@@ -21,3 +21,4 @@ def get_genres():
                 db.session.commit()
             except KeyError:
                 pass
+        sleep(1.5)

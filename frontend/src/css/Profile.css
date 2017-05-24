@@ -40,18 +40,19 @@
   margin: 0;
 }
 
-.profile .controls {
+.controls {
   z-index: 1;
   position: absolute;
   right: 0;
   top: -2px;
+  padding: 7px;
 }
 
-.profile .fa-refresh {
-  padding: 15px;
+.controls .fa {
+  padding: 8px;
   font-size: 30px;
   color: #fff;  
-} .profile .fa-refresh:hover {
+} .controls .fa:hover {
   cursor: pointer;
   color: #f9f9f9;
 }

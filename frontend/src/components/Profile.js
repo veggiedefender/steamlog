@@ -15,9 +15,10 @@ export default class Profile extends Component {
     return (
       <div className="card profile">
         <div className="controls">
+          <i className="fa fa-cog" aria-hidden="true"></i>
           <i className={refresh} aria-hidden="true" onClick={this.props.refresh}></i>
         </div>
-        <div className="image_wrapper" style={{backgroundImage: background}}>          
+        <div className="image_wrapper" style={{backgroundImage: background}}>
           <img src={image_url} alt="profile avatar" />
         </div>
         <div className="title">

@@ -1,5 +1,5 @@
-from flask import jsonify, request
-from steamlog.utils import stats
+from flask import jsonify, request, abort
+from flask_login import current_user
 from steamlog.models import User
 from steamlog import app, db
 from sqlalchemy import or_
@@ -9,19 +9,22 @@ from sqlalchemy import func
 @app.route("/api/events/<steam_id>")
 def events(steam_id):
     user = User.query.filter_by(steam_id=steam_id).first_or_404()
-    game_events = user.game_events
-    events = [dict(event) for event in game_events]
-    names = {event.game.id: event.game.name for event in game_events}
-    return jsonify({
-        "events": events,
-        "names": names
-    })
+    if user.private or user.get_id() != current_user.get_id():
+        abort(403)
+    else:
+        game_events = user.game_events
+        events = [dict(event) for event in game_events]
+        names = {event.game.id: event.game.name for event in game_events}
+        return jsonify({
+            "events": events,
+            "names": names
+        })
 
 
 @app.route("/api/profiles/<steam_id>")
 def user_info(steam_id):
     user = User.query.filter_by(steam_id=steam_id).first_or_404()
-    return jsonify(dict(user))
+    return jsonify(user.json)
 
 
 @app.route("/api/search")

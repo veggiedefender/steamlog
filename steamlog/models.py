@@ -1,5 +1,6 @@
 from sqlalchemy.exc import IntegrityError
 from steamlog.utils import get_json, get_player_info
+from flask_login import current_user
 from steamlog import db, app as _app
 
 
@@ -14,10 +15,20 @@ class User(db.Model):
     state = db.Column(db.Integer, nullable=False)
     game_events = db.relationship("GameEvent", backref="user")
 
+    @property
+    def json(self):
+        if self.private or self.get_id() != current_user.get_id():
+            details = dict(self)
+            details["state"] = 0
+            return details
+        else:
+            return dict(self)
+
     def __iter__(self):
         yield "steam_id", self.steam_id
         yield "name", self.name
         yield "picture", self.picture
+        yield "private", self.private
         yield "state", self.state
 
     def update(self, profile):

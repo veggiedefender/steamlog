@@ -1,0 +1,9 @@
+.status {
+  font-size: 15px;
+  margin-left: 1.5ch;
+  padding: 3px 5px;
+  border-radius: 1px;
+  color: #fff;
+  position: relative;
+  top: -7px;
+}

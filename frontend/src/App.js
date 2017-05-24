@@ -65,6 +65,7 @@ class App extends Component {
         <div className="container">
           <Profile
             profile={this.state.profile}
+            color={color}
             events={this.state.events}
             refresh={this.refresh}
             refreshing={this.state.refreshing}

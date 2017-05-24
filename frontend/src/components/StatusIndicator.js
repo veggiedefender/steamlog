@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StatusColors } from "../Colors";
+import "../css/Status.css";
 
 
 export default class StatusIndicator extends Component {

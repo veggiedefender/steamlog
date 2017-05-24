@@ -7,6 +7,7 @@ class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     steam_id = db.Column(db.String(17), index=True, nullable=False, unique=True)
+    private = db.Column(db.Boolean, default=False)
     url = db.Column(db.String(32), index=True, nullable=False)
     name = db.Column(db.String(32), nullable=False)
     picture = db.Column(db.String(40), nullable=False)

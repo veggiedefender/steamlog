@@ -43,4 +43,4 @@ def search():
         .limit(10)
         .all()
     )
-    return jsonify([dict(user) for user in users])
+    return jsonify([user.json for user in users])

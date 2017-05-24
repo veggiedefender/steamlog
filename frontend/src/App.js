@@ -24,7 +24,7 @@ const convertEvents = (json) => json.events.map((event) => ({
 }));
 
 async function getData(steam_id, scale="week") {
-  let data = await fetch(`/api/events/${steam_id}`);
+  let data = await fetch(`/api/events/${steam_id}`, {credentials: "same-origin"});
   data = await data.json();
   return { events: convertEvents(data) };
 }
@@ -48,7 +48,7 @@ class App extends Component {
     this.setState({
       refreshing: true
     });
-    let info = fetch(`/api/profiles/${this.props.info.steam_id}`);
+    let info = fetch(`/api/profiles/${this.props.info.steam_id}`, {credentials: "same-origin"});
     let events = getData(this.props.info.steam_id);
     this.setState({
       info: await (await info).json(),

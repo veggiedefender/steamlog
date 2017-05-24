@@ -29,6 +29,7 @@ class User(db.Model):
         yield "name", self.name
         yield "picture", self.picture
         yield "private", self.private
+        yield "my", self.get_id() == current_user.get_id()
         yield "state", self.state
 
     def update(self, profile):

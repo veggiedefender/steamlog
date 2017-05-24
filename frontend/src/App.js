@@ -30,46 +30,46 @@ async function getData(steam_id, scale="week") {
 }
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.refresh = this.refresh.bind(this);
     this.state = {
-      info: window.info,
+      profile: props.profile,
       loggedIn: window.loggedIn,
       events: [],
       refreshing: false
     }
   }
   async componentDidMount() {
-    let data = await getData(this.props.info.steam_id);
+    let data = await getData(this.props.profile.steam_id);
     this.setState(data);
   }
   async refresh() {
     this.setState({
       refreshing: true
     });
-    let info = fetch(`/api/profiles/${this.props.info.steam_id}`, {credentials: "same-origin"});
-    let events = getData(this.props.info.steam_id);
+    let profile = fetch(`/api/profiles/${this.props.profile.steam_id}`, {credentials: "same-origin"});
+    let events = getData(this.props.profile.steam_id);
     this.setState({
-      info: await (await info).json(),
+      profile: await (await profile).json(),
       events: (await events).events,
       refreshing: false
     });
   }
   render() {
-    const color = StatusColors[this.state.info.state][0];
+    const color = StatusColors[this.state.profile.state][0];
     return (
       <div className="app">
         <NavBar loggedIn={this.state.loggedIn} />
 
         <div className="container">
           <Profile
-            info={this.state.info}
+            profile={this.state.profile}
             events={this.state.events}
             refresh={this.refresh}
             refreshing={this.state.refreshing}
           />
-          {!this.state.info.private ?
+          {!this.state.profile.private || this.state.profile.my ?
           <div>
             <div className="row">
               <div className="card">

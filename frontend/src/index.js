@@ -3,4 +3,4 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 const app = document.getElementById("app");
-ReactDOM.render(<App info={window.info} />, app);
+ReactDOM.render(<App profile={window.profile} />, app);

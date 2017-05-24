@@ -8,8 +8,8 @@ import StatusIndicator from "./StatusIndicator";
 
 export default class Profile extends Component {
   render() {
-    const image_url = `${ProfilePic}${this.props.info.picture}_full.jpg`;
-    const color = StatusColors[this.props.info.state][0];
+    const image_url = `${ProfilePic}${this.props.profile.picture}_full.jpg`;
+    const color = StatusColors[this.props.profile.state][0];
     const background = `linear-gradient(to bottom, ${color} 0%, ${color} 45%, #000000 45%, white 45%, white 100%)`;
     const refresh = "fa fa-refresh " + (this.props.refreshing ? "spinning" : "");
     return (
@@ -21,10 +21,10 @@ export default class Profile extends Component {
           <img src={image_url} alt="profile avatar" />
         </div>
         <div className="title">
-          <h1>{this.props.info.name}</h1>
-          <StatusIndicator state={this.props.info.state} />
+          <h1>{this.props.profile.name}</h1>
+          <StatusIndicator state={this.props.profile.state} />
         </div>
-        <SteamProfileLink steam_id={this.props.info.steam_id} />
+        <SteamProfileLink steam_id={this.props.profile.steam_id} />
       </div>
     );
   }

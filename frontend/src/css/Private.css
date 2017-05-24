@@ -1,0 +1,13 @@
+.private {
+  text-align: center;
+}
+
+.private i {
+  font-size: 90px;
+  color: #d0d0d0;
+}
+
+.private p {
+  color: #333333;
+  margin-bottom: 1.5em;
+}

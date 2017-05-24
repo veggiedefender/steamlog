@@ -23,9 +23,11 @@ body {
 .app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
+  flex: 1;
   width: 100%;
   max-width: 960px;
   margin: 10px 0;

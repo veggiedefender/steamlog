@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./css/app.css";
 import "./css/Card.css";
+import "./css/Private.css";
 import { StatusColors } from "./Colors";
 
 import NavBar from "./components/NavBar/NavBar";
@@ -68,33 +69,46 @@ class App extends Component {
             refresh={this.refresh}
             refreshing={this.state.refreshing}
           />
-
-          <div className="row">
-            <div className="card">
-              <Heading text="Session Length" color={color} />
-              <SessionLength events={this.state.events} />
+          {!this.state.info.private ?
+          <div>
+            <div className="row">
+              <div className="card">
+                <Heading text="Session Length" color={color} />
+                <SessionLength events={this.state.events} />
+              </div>
             </div>
+
+            <div className="row">
+              <div className="card">
+                <Heading text="Weekday" color={color} />
+                <Weekday events={this.state.events} />
+              </div>
+
+              <div className="card">
+                <Heading text="Game Breakdown" color={color} />
+                <PieChart events={this.state.events} />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="card">
+                <Heading text="Full Log" color={color} />
+                <Log events={this.state.events} color={color} />
+              </div>
+            </div>            
           </div>
 
+          :
           <div className="row">
             <div className="card">
-              <Heading text="Weekday" color={color} />
-              <Weekday events={this.state.events} />
-            </div>
-
-            <div className="card">
-              <Heading text="Game Breakdown" color={color} />
-              <PieChart events={this.state.events} />
+              <Heading text="Private" color={color} />
+              <div className="chart private">
+                <i className="fa fa-eye-slash" aria-hidden="true"></i>
+                <p>This profile is private.</p>
+              </div>
             </div>
           </div>
-
-          <div className="row">
-            <div className="card">
-              <Heading text="Full Log" color={color} />
-              <Log events={this.state.events} color={color} />
-            </div>
-          </div>
-          
+          }
         </div>
 
         <Footer />

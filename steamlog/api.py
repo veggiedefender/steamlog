@@ -9,7 +9,7 @@ from sqlalchemy import func
 @app.route("/api/events/<steam_id>")
 def events(steam_id):
     user = User.query.filter_by(steam_id=steam_id).first_or_404()
-    if user.private or user.get_id() != current_user.get_id():
+    if user.private and user.get_id() != current_user.get_id():
         abort(403)
     else:
         game_events = user.game_events

@@ -17,7 +17,7 @@ class User(db.Model):
 
     @property
     def json(self):
-        if self.private or self.get_id() != current_user.get_id():
+        if self.private and self.get_id() != current_user.get_id():
             details = dict(self)
             details["state"] = 0
             return details

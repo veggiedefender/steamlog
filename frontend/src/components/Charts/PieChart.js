@@ -4,7 +4,7 @@ import { Pie } from "react-chartjs-2";
 export default class PieChart extends Component {
   render() {
     let breakdown = this.props.events.reduce((totals, event) => {
-      let elapsed = (event.stop_time - event.start_time)
+      let elapsed = (event.stop_time - event.start_time) / 3600000;
       if (event.game_name in totals) {
         totals[event.game_name] += elapsed;
       } else {
@@ -55,7 +55,7 @@ export default class PieChart extends Component {
                 label: (tooltipItem, data) => {
                   var allData = data.datasets[tooltipItem.datasetIndex].data;
                   var tooltipLabel = data.labels[tooltipItem.index];
-                  var hours = allData[tooltipItem.index] / 3600000;
+                  var hours = allData[tooltipItem.index];
                   return `${tooltipLabel}: ${hours.toFixed(2)} hours`;
                 }
               }

@@ -3,15 +3,13 @@
   min-width: 300px;
   background-color: #fff;
   border-radius: 2px;
-  margin: calc(0.5em + 1px) 0.5em;
+  margin: 0.5em;
   flex: 1;
+  overflow: hidden;
 }
 
 .card .heading {
   padding: 17px;
   font-size: 18px;
   color: #ffffff;
-  border-radius: 2px 2px 0 0;
-  position: relative;
-  top: -2px;
 }

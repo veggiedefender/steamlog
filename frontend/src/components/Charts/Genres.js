@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Radar} from "react-chartjs-2";
+import {Bar} from "react-chartjs-2";
 
 
 export default class Genres extends Component {
@@ -7,7 +7,7 @@ export default class Genres extends Component {
     let breakdown = this.props.events.reduce((genres, event) => {
       let elapsed = (event.stop_time - event.start_time) / 3600000;
       event.genres.forEach((genre) => {
-        if (event.game_name in genres) {
+        if (genre in genres) {
           genres[genre] += elapsed;
         } else {
           genres[genre] = elapsed;
@@ -16,31 +16,45 @@ export default class Genres extends Component {
       return genres;
     }, {});
 
+    let genres = [];
+    for (let genre in breakdown) {
+      genres.push({
+        genre: genre,
+        time: breakdown[genre],
+      });
+    }
+    breakdown = genres.sort((a, b) => b.time - a.time);
+
     const data = {
       labels: [],
       datasets: [{
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "#36A2EB",
-        pointBackgroundColor: "#36A2EB",
+        backgroundColor: "#36A2EB",
         data: []
       }]
     }
 
-    for (let genre in breakdown) {
-      data.labels.push(genre);
-      data.datasets[0].data.push(breakdown[genre]);
-    }
+    breakdown.forEach((genre) => {
+      data.labels.push(genre.genre);
+      data.datasets[0].data.push(genre.time);
+    });
 
     return (
       <div className="chart">
-        <Radar
+        <Bar
           width={100}
-          height={100}
+          height={50}
           data={data}
           options={{
             responsive: true,
             legend: {
               display: false
+            },
+            scales: {
+              xAxes: [{
+                ticks: {
+                  autoSkip: false
+                }
+              }]
             },
             tooltips: {
               callbacks: {

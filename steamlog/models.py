@@ -108,6 +108,11 @@ class Game(db.Model):
         db.session.add(game)
         db.session.commit()
 
+    def __iter__(self):
+        yield "id", self.id
+        yield "name", self.name
+        yield "genres", self.genres or []
+
 
 class GameEvent(db.Model):
     __tablename__ = "game_events"

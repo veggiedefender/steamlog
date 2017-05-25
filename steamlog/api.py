@@ -14,10 +14,10 @@ def events(steam_id):
     else:
         game_events = user.game_events
         events = [dict(event) for event in game_events]
-        names = {event.game.id: event.game.name for event in game_events}
+        games = {event.game.id: dict(event.game) for event in game_events}
         return jsonify({
             "events": events,
-            "names": names
+            "games": games
         })
 
 

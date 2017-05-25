@@ -6,19 +6,15 @@ export default class Genres extends Component {
   render() {
     let breakdown = this.props.events.reduce((genres, event) => {
       let elapsed = (event.stop_time - event.start_time) / 3600000;
-      if (event.genres.length === 0) {
-        genres.Other += elapsed;
-      } else {
-        event.genres.forEach((genre) => {
-          if (event.game_name in genres) {
-            genres[genre] += elapsed;
-          } else {
-            genres[genre] = elapsed;
-          }
-        });
-      }
+      event.genres.forEach((genre) => {
+        if (event.game_name in genres) {
+          genres[genre] += elapsed;
+        } else {
+          genres[genre] = elapsed;
+        }
+      });
       return genres;
-    }, {Other: 0});
+    }, {});
 
     const data = {
       labels: [],

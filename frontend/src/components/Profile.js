@@ -4,8 +4,15 @@ import "../css/Profile.css";
 import SteamProfileLink from "./SteamProfileLink";
 import { ProfilePic } from "../Constants";
 import StatusIndicator from "./StatusIndicator";
+import Options from "./Options";
 
 export default class Profile extends Component {
+  constructor() {
+    super();
+    this.state = {
+      optionsOpen: false
+    };
+  }
   render() {
     const color = this.props.color;
     const image_url = `${ProfilePic}${this.props.profile.picture}_full.jpg`;
@@ -13,10 +20,27 @@ export default class Profile extends Component {
     return (
       <div className="card profile">
         <div className="color" style={{backgroundColor: color}}>
+
           <div className="controls">
-            <i className="fa fa-cog" aria-hidden="true"></i>
+            { this.props.profile.my ?
+              <i
+                className="fa fa-cog"
+                aria-hidden="true"
+                onClick={() => this.setState({
+                  optionsOpen: !this.state.optionsOpen
+                })}
+              >
+              </i>
+            :null }
             <i className={refresh} aria-hidden="true" onClick={this.props.refresh}></i>
           </div>
+
+          {this.state.optionsOpen ?
+            <Options
+              private={this.props.profile.private}
+            /> 
+          :null }
+
           <img src={image_url} alt="profile avatar" />
         </div>
 

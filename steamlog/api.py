@@ -1,5 +1,5 @@
 from flask import jsonify, request, abort
-from flask_login import current_user
+from flask_login import current_user, login_required
 from steamlog.models import User
 from steamlog import app, db
 from sqlalchemy import or_
@@ -44,3 +44,15 @@ def search():
         .all()
     )
     return jsonify([user.json for user in users])
+
+
+@app.route("/api/options", methods=["POST"])
+@login_required
+def options():
+    data = request.get_json()
+    if data.get("private") is not None:
+        current_user.private = data["private"]
+    db.session.add(current_user)
+    db.session.commit()
+
+    return jsonify({"success": True})

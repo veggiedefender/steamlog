@@ -7,9 +7,9 @@ export default class Options extends Component {
     this.state = {
       private: this.props.private
     };
-    this.submit = this.submit.bind(this);
+    this.submitPrivate = this.submitPrivate.bind(this);
   }
-  submit() {
+  submitPrivate() {
     fetch("/api/options", {
       method: "POST",
       credentials: "same-origin",
@@ -20,9 +20,6 @@ export default class Options extends Component {
       body: JSON.stringify({
         private: this.state.private
       })
-    })
-    .then(() => {
-      this.props.toggle();
     });
   }
   render() {
@@ -36,13 +33,14 @@ export default class Options extends Component {
             <input
               type="checkbox"
               checked={this.state.private}
-              onChange={() => this.setState({private: !this.state.private})}
+              onChange={() =>
+                this.setState({private: !this.state.private}, () =>
+                  this.submitPrivate())
+              }
             />
             <div className="slider round"></div>
           </label>
         </div>
-
-        <button onClick={this.submit}>APPLY</button>
       </div>
     );
   }

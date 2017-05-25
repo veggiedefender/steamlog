@@ -18,6 +18,9 @@ export default class StackedArea extends Component {
         <Line
           data={{
             datasets: [{
+              backgroundColor: "rgba(255, 206, 86, 0.2)",
+              borderColor: "rgba(255, 206, 86, 1)",
+              pointBackgroundColor: "rgba(255, 206, 86, 1)",
               data: points,
               tension: 0
             }]

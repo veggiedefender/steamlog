@@ -9,7 +9,7 @@ export default class Log extends Component {
   }
   format(event) {
     function format(date) {
-      let day = `${pad(date.getMonth())}/${pad(date.getDate())}/${date.getFullYear()}`;
+      let day = `${pad(date.getMonth() + 1)}/${pad(date.getDate())}/${date.getFullYear()}`;
       let time = `${pad(date.getHours())}:${pad(date.getMinutes())}`;
       return `${day} ${time}`;
     }

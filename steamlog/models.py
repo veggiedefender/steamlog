@@ -111,7 +111,7 @@ class Game(db.Model):
     def __iter__(self):
         yield "id", self.id
         yield "name", self.name
-        yield "genres", self.genres or []
+        yield "genres", self.genres or ["Other"]
 
 
 class GameEvent(db.Model):

@@ -52,7 +52,7 @@ export default class Profile extends Component {
             <h1>{this.props.profile.name}</h1>
             <StatusIndicator state={this.props.profile.state} />
           </div>
-          <SteamProfileLink />
+          <SteamProfileLink steam_id={this.props.profile.steam_id} />
         </div>
       </div>
     );

@@ -31,7 +31,6 @@ export default class Weekday extends Component {
             tooltips: {
               callbacks: {
                 label: (tooltipItem, data) => {
-                  console.log("fuck");
                   var allData = data.datasets[tooltipItem.datasetIndex].data;
                   var hours = allData[tooltipItem.index];
                   return `${hours.toFixed(2)} hours`;

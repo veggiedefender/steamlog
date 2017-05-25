@@ -7,7 +7,7 @@ export default class Log extends Component {
     this.format = this.format.bind(this);
     this.state = { full: false };
   }
-  format(event) {
+  format(event, key) {
     function format(date) {
       let day = `${pad(date.getMonth() + 1)}/${pad(date.getDate())}/${date.getFullYear()}`;
       let time = `${pad(date.getHours())}:${pad(date.getMinutes())}`;
@@ -17,7 +17,7 @@ export default class Log extends Component {
       return n > 9 ? "" + n : "0" + n;
     }
     return(
-      <p>
+      <p key={key}>
         {format(event.start_time)} - {format(event.stop_time)}
         <span> {event.game_name} </span>
         ({((event.stop_time - event.start_time) / 3600000).toFixed(2)} hours)

@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Weekday from "./components/Charts/Weekday";
 import PieChart from "./components/Charts/PieChart";
 import SessionLength from "./components/Charts/SessionLength";
+import Genres from "./components/Charts/Genres";
 import Log from "./components/Charts/Log";
 
 import Profile from "./components/Profile";
@@ -17,7 +18,8 @@ import Heading from "./components/Heading";
 
 const convertEvents = (json) => json.events.map((event) => ({
   game_id: event.game_id,
-  game_name: json.names[event.game_id],
+  game_name: json.games[event.game_id].name,
+  genres: json.games[event.game_id].genres,
   start_time: new Date(event.start_time * 1000),
   stop_time: (event.stop_time == null ?
     new Date() : new Date(event.stop_time * 1000))
@@ -81,14 +83,22 @@ class App extends Component {
 
             <div className="row">
               <div className="card">
-                <Heading text="Weekday" color={color} />
+                <Heading text="Breakdown by Weekday" color={color} />
                 <Weekday events={this.state.events} />
               </div>
 
               <div className="card">
-                <Heading text="Game Breakdown" color={color} />
+                <Heading text="Top 10 Most Played" color={color} />
                 <PieChart events={this.state.events} />
               </div>
+            </div>
+
+            <div className="row">
+              <div className="card">
+                <Heading text="Genres" color={color} />
+                <Genres events={this.state.events} />
+              </div>
+
             </div>
 
             <div className="row">

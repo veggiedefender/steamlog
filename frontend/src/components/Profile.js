@@ -12,6 +12,10 @@ export default class Profile extends Component {
     this.state = {
       optionsOpen: false
     };
+    this.toggleOptions = this.toggleOptions.bind(this);
+  }
+  toggleOptions() {
+    this.setState({ optionsOpen: !this.state.optionsOpen });
   }
   render() {
     const color = this.props.color;
@@ -26,9 +30,7 @@ export default class Profile extends Component {
               <i
                 className="fa fa-cog"
                 aria-hidden="true"
-                onClick={() => this.setState({
-                  optionsOpen: !this.state.optionsOpen
-                })}
+                onClick={this.toggleOptions}
               >
               </i>
             :null }
@@ -38,6 +40,7 @@ export default class Profile extends Component {
           {this.state.optionsOpen ?
             <Options
               private={this.props.profile.private}
+              toggle={this.toggleOptions}
             /> 
           :null }
 

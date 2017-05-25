@@ -20,6 +20,9 @@ export default class Options extends Component {
       body: JSON.stringify({
         private: this.state.private
       })
+    })
+    .then(() => {
+      this.props.toggle();
     });
   }
   render() {

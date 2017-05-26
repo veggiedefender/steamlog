@@ -2,6 +2,20 @@ from steamlog.utils import get_json
 from steamlog import app
 
 
+def get_genre(game_id):
+    url = app.config["STEAM_APPDETAILS"]
+    json = get_json(url + str(game_id))[str(game_id)]
+    if json["success"]:
+        try:
+            genres = json["data"]["genres"]
+            genres = [genre["description"] for genre in genres]
+            print(f"{game_id}: {genres}")
+            return genres
+        except KeyError:
+            return None
+    return None
+
+
 def get_player_info(steam_id):
     """
     Looks like this:

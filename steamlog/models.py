@@ -1,5 +1,5 @@
 from sqlalchemy.exc import IntegrityError
-from steamlog.utils import get_json, get_player_info
+from steamlog.utils import get_json, get_player_info, get_genre
 from flask_login import current_user
 from steamlog import db, app as _app
 
@@ -104,7 +104,8 @@ class Game(db.Model):
         apps = get_json(_app.config["STEAM_APP_LIST"])["applist"]["apps"]
         apps = [app for app in apps if app["appid"] == int(game_id)]
         name = apps[0]["name"] if len(apps) > 0 else "__UNKNOWN_GAME__"
-        game = Game(id=game_id, name=name)
+        genres = get_genre(game_id)
+        game = Game(id=game_id, name=name, genres=genres)
         db.session.add(game)
         db.session.commit()
 

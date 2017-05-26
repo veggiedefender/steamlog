@@ -10,7 +10,7 @@ def index():
         return redirect(url_for("profile_page_steam_id",
                                 steam_id=current_user.steam_id))
     else:
-        return redirect(url_for("login"))
+        return render_template("index.html", user=current_user)
 
 
 @app.route("/profiles/<steam_id>")

@@ -10,7 +10,7 @@ app.config.from_object("config")
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-oid = OpenID(app)
+oid = OpenID(app, stateless=True)
 
 login_manager = LoginManager()
 login_manager.init_app(app)

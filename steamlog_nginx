@@ -1,15 +1,28 @@
-#copy to /etc/nginx/sites-available/steamlog
-#ln -s /etc/nginx/sites-available/steamlog /etc/nginx/sites-enabled
 server {
-    listen 80;
-    server_name 13.82.172.178;
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name steametrics.us;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    server_name steametrics.us;
+
+    listen 443 ssl http2 default_server;
+    listen [::]:443 ssl http2 default_server;
+
+    ssl_certificate /etc/letsencrypt/live/steametrics.us/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/steametrics.us/privkey.pem;    
+
+    include snippets/ssl-params.conf;
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix:/home/jesse/steamlog/steamlog.sock;
+        uwsgi_pass unix:///home/jesse/steamlog/steamlog.sock;
     }
-    location /static {
-        alias /home/jesse/steamlog/steamlog/static;
+    location ^~ /static/ {
+        root /home/jesse/steamlog/steamlog/;
+        include /etc/nginx/mime.types;
         add_header Cache-Control "max-age=31536000, public";
     }
 }

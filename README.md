@@ -1,6 +1,9 @@
 # steamlog
 Keep track of when you (and your friends!) play games on Steam.
 
+Screenshot:
+![Screenshot](screenshot.png)
+
 ## Notes:
 * This uses [Python 3.6 f-strings](https://www.python.org/dev/peps/pep-0498/) for logging, so either
   find and remove them or upgrade your Python version.
